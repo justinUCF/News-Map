@@ -1,9 +1,11 @@
 import React from "react";
+import Map from "../SubComponents/Map";
+import "leaflet/dist/leaflet.css";
 
 const Home: React.FC = () => {
   return (
-    <div>
-      <h1>Home</h1>
+    <div id="Map" style={{ height: "100vh", width: "100%" }}>
+      <Map />
     </div>
   );
 };
