@@ -4,8 +4,18 @@ import "leaflet/dist/leaflet.css";
 
 const Home: React.FC = () => {
   return (
-    <div id="Map" style={{ height: "100vh", width: "100%" }}>
-      <Map />
+    <div
+      id="Map"
+      style={{
+        height: "100%",
+        width: "100%",
+        padding: "24px",
+        overflow: "hidden",
+      }}
+    >
+      <div style={{ height: "100%", width: "100%" }}>
+        <Map />
+      </div>
     </div>
   );
 };

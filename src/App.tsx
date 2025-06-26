@@ -1,23 +1,20 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
 import "./App.css";
 
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 
 //components
-import Navbar from "./Components/Nav";
-import Home from "./Components/Home";
-import SavedNews from "./Components/SavedNews";
 import DailyNews from "./Components/DailyNews";
+import Home from "./Components/Home";
 import LoginForm from "./Components/login";
+import Navbar from "./Components/Nav";
+import SavedNews from "./Components/SavedNews";
 import SignupForm from "./Components/signup";
 
 function App() {
   return (
     <Router>
       <Navbar />
-      <div style={{ paddingTop: "70px" }}>
+      <div className="v-100 h-100" style={{ paddingTop: "56px" }}>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/saved" element={<SavedNews />} />
