@@ -7,16 +7,25 @@ export function RegisterForm({
   className,
   ...props
 }: React.ComponentProps<"form">) {
-  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+  // async stands for asynchronus - handle asynchronous operations
+  // - Promise: async functions allows return a promise - indicates the eventual completeion or failure of an async operation
+  // - Await: Pauses the execution of the async function until that Promise is settled
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     // handle form submission logic here
     e.preventDefault();
     const form = e.currentTarget;
     const data = new FormData(form);
-    const email = data.get("email"); // name must match the input’s name/id
-    const password = data.get("password");
-    const first = data.get("first"); // name must match the input’s name/id
-    const last = data.get("last");
-    console.log({ first, last, email, password });
+
+    //define a fetch request that is sent to the register file within our server.
+    const response = await fetch("/api/users/register", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(data),
+    });
+
+    //handle output:
+    if (!response.ok) throw new Error("signup failed");
+    return response.json();
   }
 
   return (
